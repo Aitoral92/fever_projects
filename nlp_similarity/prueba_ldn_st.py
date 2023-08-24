@@ -52,36 +52,37 @@ if url:
     
     sorted_keywords = sorted(unique_keywords.items(), key=lambda x: x[1], reverse=True)
     keyphrase = [(keyword, score) for keyword, score in sorted_keywords]
+    keyphrase
 
-    # Display extracted keywords
-    st.write("Extracted Keywords:")
-    for keyword, score in keyphrase:
-        st.write(f"- {keyword} (Score: {score:.2f})")
+    # # Display extracted keywords
+    # st.write("Extracted Keywords:")
+    # for keyword, score in keyphrase:
+    #     st.write(f"- {keyword} (Score: {score:.2f})")
 
-    # Load processed data and URLs
-    with open('ldn_gastro.pkl', 'rb') as f:
-        processed_contents_pp = pickle.load(f)
+    # # Load processed data and URLs
+    # with open('ldn_gastro.pkl', 'rb') as f:
+    #     processed_contents_pp = pickle.load(f)
 
-    with open('urls_gastro.pkl', 'rb') as f:
-        urls = pickle.load(f)
+    # with open('urls_gastro.pkl', 'rb') as f:
+    #     urls = pickle.load(f)
 
-    # Keyword matching with stored data
-    results = []
+    # # Keyword matching with stored data
+    # results = []
     
-    for url2, sublist in zip(urls, processed_contents_pp):
-        for kw, score in keyphrase:
-            keyword_found = False
-            anchor_phrase = None
-            for sentence in sublist:
-                if kw.lower() in sentence.lower():
-                    keyword_found = True
-                    anchor_phrase = sentence
-                    break
-            results.append((url, kw, score, url2, anchor_phrase))
+    # for url2, sublist in zip(urls, processed_contents_pp):
+    #     for kw, score in keyphrase:
+    #         keyword_found = False
+    #         anchor_phrase = None
+    #         for sentence in sublist:
+    #             if kw.lower() in sentence.lower():
+    #                 keyword_found = True
+    #                 anchor_phrase = sentence
+    #                 break
+    #         results.append((url, kw, score, url2, anchor_phrase))
 
-    filtered_results = [result for result in results if result[4] is not None]
-    df = pd.DataFrame(filtered_results, columns=['kw_url', 'keywords', 'scores', 'is_in_url', 'anchor_phrase'])
+    # filtered_results = [result for result in results if result[4] is not None]
+    # df = pd.DataFrame(filtered_results, columns=['kw_url', 'keywords', 'scores', 'is_in_url', 'anchor_phrase'])
 
-    # Display results in a table
-    st.write("Keyword Matching Results:")
-    st.dataframe(df)
+    # # Display results in a table
+    # st.write("Keyword Matching Results:")
+    # st.dataframe(df)
