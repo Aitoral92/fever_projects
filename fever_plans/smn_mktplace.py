@@ -42,7 +42,7 @@ if st.button("Search for Fever Plans"):
         plans_p = [elemento.translate(translator) for elemento in plans_l]
 
         # Ahora, lista_sin_puntuacion contiene los elementos sin signos de puntuación
-        print(plans_p)
+        # print(plans_p)
 
         # %%
         # Lista para almacenar los tokens de cada texto
@@ -54,8 +54,8 @@ if st.button("Search for Fever Plans"):
             plans_tkn.append(tokens)
 
         # Ahora, lista_de_listas_de_tokens contiene listas de tokens para cada texto
-        for tokens in plans_tkn:
-            print(tokens)
+        # for tokens in plans_tkn:
+        #     print(tokens)
 
         # %%
         stop_words = set(stopwords.words('english')) # Set of stopwords
@@ -70,8 +70,8 @@ if st.button("Search for Fever Plans"):
             plans_sw.append(tkn_sw)
 
         # Ahora, lista_de_listas_de_tokens_sin_stopwords contiene listas de tokens sin stopwords
-        for text_sw in plans_sw:
-            print(text_sw)
+        # for text_sw in plans_sw:
+        #     print(text_sw)
 
         # %%
         # Convierte la lista de listas en una serie de pandas
@@ -81,7 +81,7 @@ if st.button("Search for Fever Plans"):
         plans_chg['tokens'] = plans_sw_serie
 
         # Imprime el DataFrame resultante
-        print(plans_chg)
+        # print(plans_chg)
 
         # %%
         # Define las configuraciones del extractor de palabras clave YAKE
@@ -110,8 +110,8 @@ if st.button("Search for Fever Plans"):
             todas_las_palabras_clave.extend(keywords_con_id)
 
         # Imprime todas las palabras clave en una sola lista
-        for kw in todas_las_palabras_clave:
-            print(f"ID_PLAN: {kw[0]}, Palabra Clave: {kw[1]}, Puntuación: {kw[2]}")
+        # for kw in todas_las_palabras_clave:
+        #     print(f"ID_PLAN: {kw[0]}, Palabra Clave: {kw[1]}, Puntuación: {kw[2]}")
 
 
         # Realizar la solicitud HTTP
@@ -141,8 +141,8 @@ if st.button("Search for Fever Plans"):
                 paragraphs.append(element.get_text())
 
         # Imprimir los párrafos y encabezados <h2>
-        for paragraph in paragraphs:
-            print(paragraph)
+        # for paragraph in paragraphs:
+        #     print(paragraph)
 
         # %%
         # Lista para almacenar los resultados
@@ -164,8 +164,8 @@ if st.button("Search for Fever Plans"):
             
 
         # Imprimir los resultados procesados
-        for idx, processed_text in enumerate(arts):
-            print(f"Processed Text {idx+1}: {processed_text}")
+        # for idx, processed_text in enumerate(arts):
+        #     print(f"Processed Text {idx+1}: {processed_text}")
 
         # %%
         def convertir_listas_a_minusculas(listas):
@@ -178,8 +178,8 @@ if st.button("Search for Fever Plans"):
             convertir_listas_a_minusculas(arts)
 
             # Imprimir las listas modificadas
-            for lista in arts:
-                print(lista)
+            # for lista in arts:
+            #     print(lista)
 
         # %%
         # Función para tokenizar las palabras en todas las listas
@@ -195,8 +195,8 @@ if st.button("Search for Fever Plans"):
             arts_tkn = tokenizar_listas(arts)
 
             # Imprimir las listas tokenizadas
-            for lista in arts_tkn:
-                print(lista)
+            # for lista in arts_tkn:
+            #     print(lista)
 
         # %%
         # Función para eliminar stopwords de una lista de palabras tokenizadas
@@ -221,8 +221,8 @@ if st.button("Search for Fever Plans"):
             resultado_final.extend(lista_resultado_nivel_1)
 
         # Imprimir el resultado final
-        for frase in resultado_final:
-            print(frase)
+        # for frase in resultado_final:
+        #     print(frase)
 
         # %%
         # Lista para almacenar resultados
@@ -236,9 +236,9 @@ if st.button("Search for Fever Plans"):
                     resu_all.append((id, keyword, puntuacion, frase))
 
         # Imprimir los resultados
-        for resultado in resu_all:
-            id, keyword, puntuacion, frase = resultado
-            print(f"PLAN_ID: {id}, Keyword: {keyword}, Puntuación: {puntuacion}, Frase: {frase}")
+        # for resultado in resu_all:
+        #     id, keyword, puntuacion, frase = resultado
+        #     print(f"PLAN_ID: {id}, Keyword: {keyword}, Puntuación: {puntuacion}, Frase: {frase}")
 
         # %%
         # Lista para almacenar resultados
@@ -255,16 +255,16 @@ if st.button("Search for Fever Plans"):
                     resultados.append((keyword, puntuacion, frase))
 
         # Imprimir los resultados
-        for resultado in resultados:
-            keyword, puntuacion, frase = resultado
-            print(f"Keyword: {keyword}, Puntuación: {puntuacion}, Frase: {frase}")
+        # for resultado in resultados:
+        #     keyword, puntuacion, frase = resultado
+        #     print(f"Keyword: {keyword}, Puntuación: {puntuacion}, Frase: {frase}")
 
         # %%
         # Extraer los primeros elementos de cada tupla
         kws = [tupla[1] for tupla in todas_las_palabras_clave]
 
         # Imprimir la lista resultante
-        print(kws)
+        # print(kws)
 
         # %%
         import re
@@ -287,8 +287,8 @@ if st.button("Search for Fever Plans"):
                     resu_word.append((original, palabra_completa, contenedora))
 
         # Imprimir los resultados
-        for original, palabra_completa, contenedora in resu_word:
-            print(f"Cadena original: {original}, Palabra completa: {palabra_completa}, Frase completa: {contenedora}")
+        # for original, palabra_completa, contenedora in resu_word:
+        #     print(f"Cadena original: {original}, Palabra completa: {palabra_completa}, Frase completa: {contenedora}")
 
 
         # %%
@@ -301,8 +301,8 @@ if st.button("Search for Fever Plans"):
                 active_plans.append((tupla_all[0], tupla_all[1], tupla_word[2]))
 
         # Imprimir la lista active_plans
-        for item in active_plans:
-            print(item)
+        # for item in active_plans:
+        #     print(item)
 
         # %%
         active_plans = pd.DataFrame(active_plans, columns=["ID_PLAN", "KW", "TEXT"])
@@ -404,6 +404,9 @@ if st.button("Search for Fever Plans"):
 
         # Reiniciar el índice del DataFrame resultante
         mean_scores_df = mean_scores_df.reset_index(drop=True)
+
+        # Crear la columna 'PLAN_URL' usando apply y una función lambda
+        mean_scores_df['PLAN_URL'] = mean_scores_df['ID_PLAN'].apply(lambda id_plan: f'https://feverup.com/m/{id_plan}')
 
         # Imprimir el DataFrame resultante
         st.dataframe(mean_scores_df)
